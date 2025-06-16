@@ -1,8 +1,12 @@
 import streamlit as st
 import pandas as pd
 import pickle
+from downloader import download_file_from_google_drive
 
 st.title("Welcome to Smartphone Recommender System")
+
+# Downloading similarity matrix from google drive
+download_file_from_google_drive("1HmW__R9xvVsp9xYV9gEe7EmerVr743nQ", "similarity_matrix.pkl")
 
 with open("phones_with_image_path.pkl", "rb") as file:
     df = pickle.load(file)
