@@ -7,6 +7,7 @@ from downloader import download_file_from_google_drive
 # Downloading price predictor pipeline from google drive
 download_file_from_google_drive("1SlGyFxIr2mndxyV4t4A3vG-jykPYYWOe", "price_predictor_pipeline.pkl")
 
+
 with open("price_predictor_data.pkl", "rb") as file:
     smartphones_df = pickle.load(file)
 
