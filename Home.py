@@ -5,7 +5,7 @@ import pickle
 import pandas as pd
 
 st.set_page_config(layout="wide")
-st.title("Overall Analysis of the Dataset")
+st.title("Analytics and Insights")
 
 with open("phones_with_image_path.pkl", "rb") as file:
     df = pickle.load(file)
