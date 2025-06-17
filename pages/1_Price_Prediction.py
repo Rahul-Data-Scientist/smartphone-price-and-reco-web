@@ -11,6 +11,7 @@ download_file_from_google_drive("1SlGyFxIr2mndxyV4t4A3vG-jykPYYWOe", "price_pred
 with open("price_predictor_data.pkl", "rb") as file:
     smartphones_df = pickle.load(file)
 
+
 cols = ['processor_brand', 'brand', 'screen_type', 'spec_score_cat']
 
 with open("price_predictor_pipeline.pkl", "rb") as file:
@@ -26,14 +27,7 @@ brand = st.selectbox("Select Smartphone Brand", brand_list)
 processor_brand_list = sorted(smartphones_df['processor_brand'].unique())
 processor_brand = st.selectbox('Processor Brand', processor_brand_list)
 
-# clock speed
-clock_speed = float(st.slider(
-    label = "Enter Clock Speed (GHz)",
-    min_value = 1.0,
-    max_value = 5.0,
-    value = 2.0,
-    step = 0.1
-))
+clock_speed = float(st.number_input("Enter Processor Clock Speed (GHz)"))
 
 # NFC
 has_nfc = st.selectbox("NFC Required", ["Yes", "No"])
@@ -105,7 +99,7 @@ if st.button('Predict'):
     price = pipeline.predict(input_df)[0]
 
     # display
-    st.markdown(f"### 💰 Estimated Price: ₹ {round(price, 2)}")
+    st.markdown(f"### Estimated Price: ₹ {round(price, 2)}")
 
 
 
