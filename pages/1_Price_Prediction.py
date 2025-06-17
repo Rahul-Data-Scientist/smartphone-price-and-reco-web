@@ -5,15 +5,12 @@ import pandas as pd
 from downloader import download_file_from_google_drive
 
 
-
 with open("price_predictor_data.pkl", "rb") as file:
     smartphones_df = pickle.load(file)
 
 
 cols = ['processor_brand', 'brand', 'screen_type', 'spec_score_cat']
 
-with open("price_predictor_pipeline.pkl", "rb") as file:
-    pipeline = pickle.load(file)
 
 st.title("Enter the Desired Specifications")
 
@@ -83,6 +80,8 @@ spec_score_cat = st.selectbox("Choose Specifications Level", ['High', 'Low', 'Mi
 if st.button('Predict'):
     # Downloading price predictor pipeline from google drive
     download_file_from_google_drive("1SlGyFxIr2mndxyV4t4A3vG-jykPYYWOe", "price_predictor_pipeline.pkl")
+    with open("price_predictor_pipeline.pkl", "rb") as file:
+        pipeline = pickle.load(file)
 
     # form a dataframe
     data = [[processor_brand, clock_speed, has_nfc, has_5g, ram_gb, rom_gb, brand, battery_capacity_mah,
