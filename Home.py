@@ -13,14 +13,14 @@ with open("phones_with_image_path.pkl", "rb") as file:
 total_phones = df.shape[0]
 total_brands = df['brand'].nunique()
 foldable_phones = df[df['foldable_display'] == 1].shape[0]
-min_price = df['price'].min().astype(int)
-max_price = df['price'].max().astype(int)
-min_display_size = df['screen_size_inch'].min()
-max_display_size = df['screen_size_inch'].max()
+min_price = int(df['price'].min())
+max_price = int(df['price'].max())
+min_display_size = round(df['screen_size_inch'].min(), 1)
+max_display_size = round(df['screen_size_inch'].max(), 1)
 five_g_phones = df[df['has_5g'] == 1].shape[0]
 
-price_range = "Rs" + min_price.astype(str) + "-" + "Rs" + max_price.astype(str)
-display_range = min_display_size.astype(str) + "inch" + "-" + max_display_size.astype(str) + "inch"
+price_range = f"Rs {min_price} - Rs {max_price}"
+display_range = f"{min_display_size} inch - {max_display_size} inch"
 
 
 col1, col2, col3 = st.columns(3)
