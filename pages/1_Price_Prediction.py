@@ -8,11 +8,13 @@ from downloader import download_file_from_google_drive
 with open("price_predictor_data.pkl", "rb") as file:
     smartphones_df = pickle.load(file)
 
+st.title("Welcome to Smartphone Price Prediction Module")
+
 
 cols = ['processor_brand', 'brand', 'screen_type', 'spec_score_cat']
 
 
-st.title("Enter the Desired Specifications")
+st.header("Enter the Desired Specifications")
 
 # smartphone brand
 brand_list = sorted(smartphones_df['brand'].unique())

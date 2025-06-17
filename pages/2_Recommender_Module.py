@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 from downloader import download_file_from_google_drive
 
-st.title("Welcome to Smartphone Recommender System")
+st.title("Welcome to Smartphone Recommender Module")
 
 # Downloading similarity matrix from google drive
 download_file_from_google_drive("1HmW__R9xvVsp9xYV9gEe7EmerVr743nQ", "similarity_matrix.pkl")
