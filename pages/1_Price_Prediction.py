@@ -4,8 +4,6 @@ import pandas as pd
 
 from downloader import download_file_from_google_drive
 
-# Downloading price predictor pipeline from google drive
-download_file_from_google_drive("1SlGyFxIr2mndxyV4t4A3vG-jykPYYWOe", "price_predictor_pipeline.pkl")
 
 
 with open("price_predictor_data.pkl", "rb") as file:
@@ -83,6 +81,8 @@ screen_type = st.selectbox("Choose Screen Type", ['AMOLED', 'LCD', 'OLED', 'OTHE
 spec_score_cat = st.selectbox("Choose Specifications Level", ['High', 'Low', 'Mid'])
 
 if st.button('Predict'):
+    # Downloading price predictor pipeline from google drive
+    download_file_from_google_drive("1SlGyFxIr2mndxyV4t4A3vG-jykPYYWOe", "price_predictor_pipeline.pkl")
 
     # form a dataframe
     data = [[processor_brand, clock_speed, has_nfc, has_5g, ram_gb, rom_gb, brand, battery_capacity_mah,
