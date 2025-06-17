@@ -22,7 +22,14 @@ brand = st.selectbox("Select Smartphone Brand", brand_list)
 processor_brand_list = sorted(smartphones_df['processor_brand'].unique())
 processor_brand = st.selectbox('Processor Brand', processor_brand_list)
 
-clock_speed = float(st.number_input("Enter Processor Clock Speed (GHz)"))
+# clock speed
+clock_speed = float(st.slider(
+    label = "Enter Clock Speed (GHz)",
+    min_value = 1.0,
+    max_value = 5.0,
+    value = 2.0,
+    step = 0.1
+))
 
 # NFC
 has_nfc = st.selectbox("NFC Required", ["Yes", "No"])
