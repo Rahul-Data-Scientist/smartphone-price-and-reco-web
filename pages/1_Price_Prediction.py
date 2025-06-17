@@ -84,7 +84,8 @@ front_primary_mp = float(st.number_input("Enter Front Primary Camera Capacity (M
 screen_type = st.selectbox("Choose Screen Type", ['AMOLED', 'LCD', 'OLED', 'OTHER', 'SUPER AMOLED'])
 
 # spec_score_cat
-spec_score_cat = st.selectbox("Choose Specifications Level", ['High', 'Low', 'Mid'])
+spec_score_cat = st.selectbox("Select Specs Level (Low <74, Mid 74–81, High >81)", ['High', 'Low', 'Mid'])
+
 
 if st.button('Predict'):
     # Downloading price predictor pipeline from google drive
