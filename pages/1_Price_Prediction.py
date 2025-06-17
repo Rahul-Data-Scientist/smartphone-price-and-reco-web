@@ -105,7 +105,7 @@ if st.button('Predict'):
     price = pipeline.predict(input_df)[0]
 
     # display
-    st.text("The price of the smartphone is around Rs {}".format(round(price, 2)))
+    st.markdown(f"### 💰 Estimated Price: ₹ {round(price, 2)}")
 
 
 
